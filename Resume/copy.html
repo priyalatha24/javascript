@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Rescss1.css" />
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let users = {
+            "data": [{
+                "img": "./img/priya_res.jpg",
+                "contactinfo": ["8778734610",
+                    "24priyalatha@gmail.com",
+                    "https://www.linkedin.com/in/priyalatha-s",
+                    "https://github.com/priyalatha24"],
+                "Skills": ["HTML", "CSS", "JAVASCRIPT", "GIT"],
+                "Certificate": [{ "title": "Udemy", "titledes": "Introduction to webdevlopment" },
+                { "title": "Guvi", "titledes": "Programming in HTML,CSS" },
+                { "title": "Guvi", "titledes": "Programming in Javascript" }],
+                "name": "PRIYALATHA S",
+                "Objective": "The quest to learn and work in an environment where my skill and knowledge reflect the company's frowth and enhance my knowledge as well as experience. Seeking a new opportunity that will expand my  skill set",
+                "qualification": "BE-COMPUTER SCIENCE AND ENGINEERING",
+                "year": "2020 -2023",
+                "clgname": "Vivekanandha College of Technology for Women",
+                "cgp": "CGPA:8.15",
+                "school": [{ "title": "HSC(2019)", "name": "Cluny Matric Higher Secondary School" },
+                { "title": "SSLC(2017)", "name": "LEF Eden Garden Matric School" }],
+                "internship": [{
+                    "internshipname": "WEBDEVLOPMENT WITH PYTHON AT TECHVOLTSOFTWARE",
+                    "interndes": "Devloped a e-commerce website that online shoppers see and interact"
+                }],
+                "projects": ["Devloped a Library Management system", "Devloped a Simple clothing Webpage like Flipkart"]
+            }]
+        }
+        function loadcontent() {
+            htmlContent = "";
+            users.data.forEach((user) => {
+                htmlContent = `${htmlContent}<div class="left_side">
+        <div class="profileText">
+          <div class="imgBox">
+            <img src="${user.img}" alt="profilepic" />
+          </div>
+         
+        </div><div class="contactInfo"><h3 class="title">Contact Info</h3>`
+                user.contactinfo.forEach((contect) => {
+                    htmlContent = `${htmlContent}
+          
+          <ul>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-mobile" aria-hidden="true"></i
+              ></span>
+              <span class="text">&nbsp;&nbsp;${contect}</span>
+            </li>
+           </ul>`
+        })
+
+                htmlContent = `${htmlContent} </div><!--skills -->
+        <div class="Skills">
+          <h3 class="title">Skills</h3>`
+                user.Skills.forEach(skill => {
+                    htmlContent = `${htmlContent}<ul>
+            <li>${skill}</li>
+            
+          </ul>`
+        })
+                htmlContent = `${htmlContent}</div>
+       <!--Certificate-->
+        <div class="Certificate">
+          <h3 class="title">Certificate</h3>`
+                user.Certificate.forEach((certi) => {
+                    htmlContent = `${htmlContent}
+            <ul>
+            <li>
+              <span class="text"><b>${certi.title}</b></span
+              ><br />
+              <p>${certi.titledes}</p>
+            </li>
+          </ul>`
+                })
+
+                htmlContent = `${htmlContent}</div>
+      </div>
+      <!--right side starts here -->
+      <div class="right_side">
+        <div class="about">
+          <h2 class="title2">${user.name}</h2>
+        </div>
+        <!--rgt side 1.career objective-->
+        <div class="Carrer_objective">
+          <h3 class="title">career Objective</h3>
+          <p>
+            ${user.Objective}
+          </p>
+        </div>
+
+        <!--2.Academic credential-->
+        <div class="Academiccredential">
+          <h3 class="title">academic credential</h3>
+          <ul>
+            <li>
+              <span class="text"
+                ><b>${user.qualification}</b><br />
+              </span>
+              <h5>${user.year}</h5>
+              <br />
+              <span class="text"
+                >${user.clgname}</span
+              ><br />
+              <p>${user.cgp}</p>
+            </li>
+            <br />`
+                user.school.forEach(schools => {
+                    htmlContent = `${htmlContent}
+            <li>
+              <span class="text"><b>${schools.title}</b></span
+              ><br />
+              <p>${schools.name}</p>
+            </li>`
+
+                })
+
+                htmlContent = `${htmlContent} <br />
+            </ul>
+        </div><!--3.Internships-->
+        <div class="Internships">
+          <h3 class="title">internships</h3>`
+                user.internship.forEach((intern) => {
+                    htmlContent = `${htmlContent}
+          <ul>
+            <li>
+              <span class="text"
+                ><b>${intern.internshipname}</b></span
+              ><br />
+              <p>
+                ${intern.interndes}
+              </p>
+            </li>
+          </ul>`
+                })
+
+                htmlContent = `${htmlContent}</div>
+            <!--4.Projects-->
+        <div class="Projects">
+          <h3 class="title">projects</h3>`
+                user.projects.forEach((pro) => {
+                    htmlContent = `${htmlContent}
+          <ul>
+            <li>
+              <span class="text">${pro}</span
+              ><br />
+            </li>
+          </ul>`
+
+                })
+                htmlContent = `${htmlContent}
+                  </div>
+      </div>`
+
+            })
+            document.getElementById("resume").innerHTML = htmlContent;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container" id="resume">
+
+    </div>
+    <script>
+        loadcontent();
+    </script>
+</body>
+
+</html>
